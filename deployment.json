@@ -1,0 +1,23 @@
+{
+  "agent": "elastic",
+  "steps": [
+    {
+      "name": "ecr_create_repo",
+      "repositoryName": "dogwatch"
+    },
+    {
+      "name": "docker_build",
+      "image": "dogwatch",
+      "tag": "latest"
+    },
+    {
+      "name": "stop_unless_branch",
+      "branch": [ "iflix" ]
+    },
+    {
+      "name": "docker_push",
+      "image": "dogwatch",
+      "tag": "latest"
+    }
+  ]
+}
